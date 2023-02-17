@@ -34,7 +34,7 @@ def query_performance(strategy_specific_url):
 
 
 def create_report(report):
-    with open("results.csv", "a", newline='') as file:
+    with open("results.csv", "a", newline='') as file:      # remove parameter: newline=''
         headers = ['lighthouse fetchTime', 'form factor', 'overall score', 'speed_index', 'first_contentful_pain',
                    'first_meaningful_paint', 'time_to_interactive']
 
@@ -49,7 +49,7 @@ def create_report(report):
         csv_writer = csv.writer(file)
 
         with open('results.csv', 'rt') as f:
-            reader = csv.reader(f, delimiter=',')
+            reader = csv.reader(f, delimiter=',')     # remove parameter delimiter=','
             for row in reader:
                 if headers == row[0]:
                     csv_writer.writerow(headers)
@@ -57,8 +57,8 @@ def create_report(report):
                 else:
                     csv_writer.writerow(rows)
 
-        csv_writer.writerow(headers)
-        csv_writer.writerow(rows)
+        csv_writer.writerow(headers)  # remove
+        csv_writer.writerow(rows)     # remove
 
 
 if __name__ == '__main__':
